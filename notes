@@ -1,5 +1,4 @@
 #RUNNING PROTGRESQL
-
 docker run -it \
     -e POSTGRES_USER="root" \
     -e POSTGRES_PASSWORD="root" \
@@ -37,6 +36,9 @@ python ingest_data.py \
     --table_name=yellow_taxi_trips \
     --url=https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2021-01.parquet
 
+#BUILD IT FIRST
+docker build -t taxi_ingest:v001 .
+
 #MAKE IT TO DOCKER!
 docker run taxi_ingest:v001 \
     --user=root \
@@ -46,3 +48,5 @@ docker run taxi_ingest:v001 \
     --db=ny_taxi \
     --table_name=yellow_taxi_trips \
     --url=https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2021-01.parquet
+
+#DOCKER COMPOSE
