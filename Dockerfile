@@ -1,5 +1,5 @@
 FROM python:3.9.1
-RUN pip install pandas sqlalchemy psycopg2 pyarrow fastparquet
+RUN pip install pandas sqlalchemy psycopg2 pyarrow fastparquet wget
 
 WORKDIR /app
 COPY ingest_data.py ingest_data.py
