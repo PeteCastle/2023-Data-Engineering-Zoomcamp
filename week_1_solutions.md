@@ -111,4 +111,84 @@ SELECT gtt."DOLocationID", tz."Zone", MAX(gtt.tip_amount) AS largest_tip
 ```
 ![](resources/images/2023-01-26-13-38-22.png)
 
+## Part B
+`cd ./terraform`
+
+`terraform apply`
+
+Output
+```
+  Francis Mark Cayco@FrancisMark MINGW64 /d/Educational Others/2023 Data Engineering Zoomcamp/terraform (master)
+$ terraform apply
+google_bigquery_dataset.dataset: Refreshing state... [id=projects/alert-ability-351416/datasets/trips_data_all]
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  + create
+  ~ update in-place
+
+Terraform will perform the following actions:
+
+  # google_bigquery_dataset.dataset will be updated in-place
+  ~ resource "google_bigquery_dataset" "dataset" {
+      - default_partition_expiration_ms = 5184000000 -> null
+      - default_table_expiration_ms     = 5184000000 -> null
+        id                              = "projects/alert-ability-351416/datasets/trips_data_all"
+        # (9 unchanged attributes hidden)
+
+        # (4 unchanged blocks hidden)
+    }
+
+  # google_storage_bucket.data-lake-bucket will be created
+  + resource "google_storage_bucket" "data-lake-bucket" {
+      + force_destroy               = true
+      + id                          = (known after apply)
+      + location                    = "ASIA-EAST2"
+      + name                        = "dtc_data_lake_alert-ability-351416"
+      + project                     = (known after apply)
+      + public_access_prevention    = (known after apply)
+      + self_link                   = (known after apply)
+      + storage_class               = "STANDARD"
+      + uniform_bucket_level_access = true
+      + url                         = (known after apply)
+
+      + lifecycle_rule {
+          + action {
+              + type = "Delete"
+            }
+
+          + condition {
+              + age                   = 30
+              + matches_prefix        = []
+              + matches_storage_class = []
+              + matches_suffix        = []
+              + with_state            = (known after apply)
+            }
+        }
+
+      + versioning {
+          + enabled = true
+        }
+
+      + website {
+          + main_page_suffix = (known after apply)
+          + not_found_page   = (known after apply)
+        }
+    }
+
+Plan: 1 to add, 1 to change, 0 to destroy.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+google_storage_bucket.data-lake-bucket: Creating...
+google_bigquery_dataset.dataset: Modifying... [id=projects/alert-ability-351416/datasets/trips_data_all]
+google_bigquery_dataset.dataset: Creation complete after 1s [id=projects/alert-ability-351416/datasets/trips_data_all]
+google_storage_bucket.data-lake-bucket: Creation complete after 1s [id=dtc_data_lake_alert-ability-351416]
+
+Apply complete! Resources: 2 added, 0 changed, 0 destroyed.
+```
+
 
