@@ -4,3 +4,5 @@ terraform_azure/.terraform/
 terraform_gcp/.terraform/
 resources/datasets
 flows/__pycache__
+*.tfstate
+*.tfstate.backup

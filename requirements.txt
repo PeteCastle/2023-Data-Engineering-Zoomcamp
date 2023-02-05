@@ -10,3 +10,4 @@ sqlalchemy
 prefect-azure
 prefect-azure[blob_storage]
 aiohttp
+prefect[github]

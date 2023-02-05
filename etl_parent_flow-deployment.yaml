@@ -1,14 +1,18 @@
 ###
-### A complete description of a Prefect Deployment for flow 'ETL Parent Flow'
+### A complete description of a Prefect Deployment for flow 'etl-parent-flow'
 ###
-name: synapse_parent_flow
-description: Parent flow to run multiple base flows
-version: 18ff2d0a7daef9a5986ad81210f133e0
+name: =parameterized-flow-github-version
+description: Parent flow to run multiple child flows
+version: db1b02c8e812f79d4547e07362e494c2
 # The work queue that will handle this deployment's runs
 work_queue_name: default
 work_pool_name: null
 tags: []
-parameters: {}
+parameters: {
+  "months":[1,2,3,4],
+  "years":[2021],
+  "colors":["yellow"]
+}
 schedule: null
 is_schedule_active: null
 infra_overrides: {}
@@ -26,11 +30,20 @@ infrastructure:
 ###
 ### DO NOT EDIT BELOW THIS LINE
 ###
-flow_name: ETL Parent Flow
+flow_name: etl-parent-flow
 manifest_path: null
-storage: null
-path: D:\Educational Others\2023 Data Engineering Zoomcamp
-entrypoint: flows\parameterized_synapse.py:etl_parent_flow
+storage:
+  repository: https://github.com/PeteCastle/2023-Data-Engineering-Zoomcamp
+  reference: null
+  access_token: null
+  include_git_objects: true
+  _block_document_id: 130dec8f-2f02-47ad-8001-34ba1e1872e4
+  _block_document_name: github-block
+  _is_anonymous: false
+  block_type_slug: github
+  _block_type_slug: github
+path: ''
+entrypoint: flows\parameterized_flow.py:etl_parent_flow
 parameter_openapi_schema:
   title: Parameters
   type: object
@@ -38,8 +51,10 @@ parameter_openapi_schema:
     months:
       title: months
       default:
+      - 1
       - 2
       - 3
+      - 4
       position: 0
       type: array
       items:
@@ -47,7 +62,7 @@ parameter_openapi_schema:
     years:
       title: years
       default:
-      - 2019
+      - 2021
       position: 1
       type: array
       items:
@@ -62,4 +77,4 @@ parameter_openapi_schema:
         type: string
   required: null
   definitions: null
-timestamp: '2023-02-05T12:37:32.109434+00:00'
+timestamp: '2023-02-05T13:55:10.176988+00:00'
