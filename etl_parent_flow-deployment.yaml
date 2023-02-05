@@ -1,0 +1,65 @@
+###
+### A complete description of a Prefect Deployment for flow 'ETL Parent Flow'
+###
+name: synapse_parent_flow
+description: Parent flow to run multiple base flows
+version: 18ff2d0a7daef9a5986ad81210f133e0
+# The work queue that will handle this deployment's runs
+work_queue_name: default
+work_pool_name: null
+tags: []
+parameters: {}
+schedule: null
+is_schedule_active: null
+infra_overrides: {}
+infrastructure:
+  type: process
+  env: {}
+  labels: {}
+  name: null
+  command: null
+  stream_output: true
+  working_dir: null
+  block_type_slug: process
+  _block_type_slug: process
+
+###
+### DO NOT EDIT BELOW THIS LINE
+###
+flow_name: ETL Parent Flow
+manifest_path: null
+storage: null
+path: D:\Educational Others\2023 Data Engineering Zoomcamp
+entrypoint: flows\parameterized_synapse.py:etl_parent_flow
+parameter_openapi_schema:
+  title: Parameters
+  type: object
+  properties:
+    months:
+      title: months
+      default:
+      - 2
+      - 3
+      position: 0
+      type: array
+      items:
+        type: integer
+    years:
+      title: years
+      default:
+      - 2019
+      position: 1
+      type: array
+      items:
+        type: integer
+    colors:
+      title: colors
+      default:
+      - yellow
+      position: 2
+      type: array
+      items:
+        type: string
+  required: null
+  definitions: null
+timestamp: '2023-02-05T12:37:32.109434+00:00'

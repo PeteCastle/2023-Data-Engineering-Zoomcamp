@@ -56,6 +56,12 @@ docker run taxi_ingest:v001 \
     --url=https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2021-01.parquet
 ```
 
+## DOCKER PUSH
+Used to publish your image to the web
+`docker image push petecastle/prefect:zoom`
+
+Note that "petecastle" must be the username
+
 ## DOCKER COMPOSE
 `docker-compose up`
 

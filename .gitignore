@@ -1,3 +1,6 @@
 credentials
 ny_taxi_postgres_data/
-terraform/.terraform/
+terraform_azure/.terraform/
+terraform_gcp/.terraform/
+resources/datasets
+flows/__pycache__
