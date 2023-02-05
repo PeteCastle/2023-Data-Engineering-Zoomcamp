@@ -7,10 +7,10 @@ Using the `etl_web_to_gcs.py` flow that loads taxi data into GCS as a guide, cre
 
 How many rows does that dataset have?
 
-* [*] 447,770
-* [ ] 766,792
-* [ ] 299,234
-* [ ] 822,132
+[*] 447,770
+[ ] 766,792
+[ ] 299,234
+[ ] 822,132
 ![Week 2 Question 1 Screenshot](resources/images/2023-02-05-20-24-44.png)
 
 ## Question 2. Scheduling with Cron
@@ -19,10 +19,11 @@ Cron is a common scheduling specification for workflows.
 
 Using the flow in `etl_web_to_gcs.py`, create a deployment to run on the first of every month at 5am UTC. What’s the cron schedule for that?
 
-- [*] `0 5 1 * *`
-- [ ] `0 0 5 1 *`
-- [ ] `5 * 1 0 *`
-- [ ] `* * 5 1 0`
+[*] `0 5 1 * *`
+[ ] `0 0 5 1 *`
+[ ] `5 * 1 0 *`
+[ ] `* * 5 1 0`
+  
 ![Week 2 Question 2 Screenshot](resources/images/2023-02-05-20-26-32.png)
 
 ## Question 3. Loading data to BigQuery 
@@ -39,14 +40,15 @@ Create a deployment for this flow to run in a local subprocess with local flow c
 
 Make sure you have the parquet data files for Yellow taxi data for Feb. 2019 and March 2019 loaded in GCS. Run your deployment to append this data to your BiqQuery table. How many rows did your flow code process?
 
-- [*] 14,851,920
-- [ ] 12,282,990
-- [ ] 27,235,753
-- [ ] 11,338,483
+[*] 14,851,920
+[ ] 12,282,990
+[ ] 27,235,753
+[ ] 11,338,483
 
 Note:  I am using Azure Synapse DB instead of BigQuery.  There are minor modifications in the code, but the ETL process is still the same.  The code is in ./flows/parameterized_synapse.py
 
 Tasks runs for each of the two datsets:
+
 ![Week 2 Question 3 Screenshot](resources/images/2023-02-05-22-10-34.png)
 
 Output:
@@ -69,13 +71,14 @@ Run your deployment in a local subprocess (the default if you don’t specify an
 
 How many rows were processed by the script?
 
-- [ ] 88,019
-- [ ] 192,297
-- [*] 88,605
-- [ ] 190,225
+[ ] 88,019
+[ ] 192,297
+[*] 88,605
+[ ] 190,225
 
 Code used:
 `prefect deployment build -sb="github/github-block" ./flows/parameterized_flow.py:etl_parent_flow -n "parameterized-flow-github-version"`
+
 `prefect deployment apply etl_parent_flow-deployment.yaml`
 
 Notes:
@@ -107,25 +110,27 @@ Alternatively, you can grab the webhook URL from your own Slack workspace and Sl
 
 How many rows were processed by the script?
 
-- [ ] `125,268`
-- [ ] `377,922`
-- [ ] `728,390`
-- [*] `514,392`
+[ ] `125,268`
+[ ] `377,922`
+[ ] `728,390`
+[*] `514,392`
 
 Proof of Flow Run:
 ![Week 2 Question 5 Screenshot](resources/images/2023-02-05-22-24-35.png)
 
 Notification in Slack:
+
 ![Week 2 Question 5 Screenshot](resources/images/2023-02-05-22-25-24.png)
+
 Message [link](https://temp-notify.slack.com/archives/C04M4NAM67L/p1675606901111839)
 
 ## Question 6. Secrets
 
 Prefect Secret blocks provide secure, encrypted storage in the database and obfuscation in the UI. Create a secret block in the UI that stores a fake 10-digit password to connect to a third-party service. Once you’ve created your block in the UI, how many characters are shown as asterisks (*) on the next page of the UI?
 
-- [ ] 5
-- [ ] 6
-- [*] 8
-- [ ] 10
+[ ] 5
+[ ] 6
+[*] 8
+[ ] 10
 
 ![Week 2 Question 6 Screenshot](resources/images/2023-02-05-20-51-25.png)
