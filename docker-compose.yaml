@@ -17,13 +17,13 @@ services:
       - PGADMIN_DEFAULT_PASSWORD=root
     ports:
       - "8080:80"
-  pythonpipeline:
-    # image: python:3.9.1
-    build: .
-    # volumes:
-    #   - "ingest_data.py:ingest_data.py"
-    # command:
-    #   - "pip install pandas sqlalchemy psycopg2 pyarrow fastparquet wget"
-    entrypoint: "python ingest_data.py --user=root --password=root --host=pgdatabase --port=5432 --db=ny_taxi --table_name=green_taxi_trips --url=https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_2019-01.parquet"
-    # working_dir: /app
+  # pythonpipeline:
+  #   # image: python:3.9.1
+  #   build: .
+  #   # volumes:
+  #   #   - "ingest_data.py:ingest_data.py"
+  #   # command:
+  #   #   - "pip install pandas sqlalchemy psycopg2 pyarrow fastparquet wget"
+  #   entrypoint: "python ingest_data.py --user=root --password=root --host=pgdatabase --port=5432 --db=ny_taxi --table_name=green_taxi_trips --url=https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_2019-01.parquet"
+  #   # working_dir: /app
 

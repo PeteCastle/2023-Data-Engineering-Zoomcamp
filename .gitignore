@@ -6,3 +6,6 @@ resources/datasets
 flows/__pycache__
 *.tfstate
 *.tfstate.backup
+dbt_synapse/target/
+dbt_synapse/dbt_packages/
+dbt_synapse/logs/
