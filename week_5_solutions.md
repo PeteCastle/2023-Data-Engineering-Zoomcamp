@@ -1,12 +1,7 @@
 ## Week 5 Homework 
-
-In this homework we'll put what we learned about Spark in practice.
-
 For this homework we will be using the FHVHV 2021-06 data found here. [FHVHV Data](https://github.com/DataTalksClub/nyc-tlc-data/releases/download/fhvhv/fhvhv_tripdata_2021-06.csv.gz )
 
-
 ### Question 1: 
-
 **Install Spark and PySpark** 
 
 - Install Spark
@@ -21,7 +16,6 @@ What's the output?
 - [ ] 5.4
 
 ![](resources/images/2023-02-26-14-23-15.png)
-</br></br>
 
 Note: I am using Spark 3.2.3.  The video instruction has 3.3.3 installed.
 
@@ -34,7 +28,6 @@ We will use this dataset for all the remaining questions.</br>
 Repartition it to 12 partitions and save it to parquet.</br>
 What is the average size of the Parquet (ending with .parquet extension) Files that were created (in MB)? Select the answer which most closely matches.</br>
 
-
 - [ ] 2MB
 - [x] 24MB
 - [ ] 100MB
@@ -43,9 +36,6 @@ What is the average size of the Parquet (ending with .parquet extension) Files t
 `Average file size is: 23066452.333333332 bytes`
 
 ![](resources/images/2023-02-26-14-51-53.png)
-
-</br></br>
-
 
 ### Question 3: 
 
@@ -63,11 +53,7 @@ Consider only trips that started on June 15.</br>
 taxi_trips_count = df_fvhv.where("DAY(pickup_datetime) == 15").count()
 Number of taxi trips on 15th June 2021: 452470
 ```
-</br></br>
-
-
 ### Question 4: 
-
 **Longest trip for each day**  
 
 Now calculate the duration for each trip.</br>
@@ -77,7 +63,6 @@ How long was the longest trip in Hours?</br>
 - [ ] 243.44 Hours
 - [ ] 7.68 Hours
 - [ ] 3.32 Hours
-</br></br>
 
 ```
 SELECT 
@@ -151,17 +136,4 @@ spark.sql("""
 """).show(5)
 
 ```
-
 ![](resources/images/2023-02-26-15-38-43.png)
-
-## Submitting the solutions
-
-* Form for submitting: https://forms.gle/EcSvDs6vp64gcGuD8
-* You can submit your homework multiple times. In this case, only the last submission will be used. 
-
-Deadline: 06 March (Monday), 22:00 CET
-
-
-## Solution
-
-We will publish the solution here
