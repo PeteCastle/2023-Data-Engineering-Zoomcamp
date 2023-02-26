@@ -1,23 +1,19 @@
 ###
 ### A complete description of a Prefect Deployment for flow 'etl-parent-flow'
 ###
-name: =parameterized-flow-github-version
+name: etl-local-flow
 description: Parent flow to run multiple child flows
-version: db1b02c8e812f79d4547e07362e494c2
+version: 08cc04320ff7cb4865d020f917851436
 # The work queue that will handle this deployment's runs
 work_queue_name: default
 work_pool_name: null
 tags: []
-parameters: {
-  "months":[1,2,3,4],
-  "years":[2021],
-  "colors":["yellow"]
-}
+parameters: {}
 schedule: null
 is_schedule_active: null
 infra_overrides: {}
 infrastructure:
-  type: process
+  type: processz
   env: {}
   labels: {}
   name: null
@@ -32,18 +28,9 @@ infrastructure:
 ###
 flow_name: etl-parent-flow
 manifest_path: null
-storage:
-  repository: https://github.com/PeteCastle/2023-Data-Engineering-Zoomcamp
-  reference: null
-  access_token: null
-  include_git_objects: true
-  _block_document_id: 130dec8f-2f02-47ad-8001-34ba1e1872e4
-  _block_document_name: github-block
-  _is_anonymous: false
-  block_type_slug: github
-  _block_type_slug: github
-path: ''
-entrypoint: flows\parameterized_flow.py:etl_parent_flow
+storage: null
+path: D:\Educational Others\2023 Data Engineering Zoomcamp
+entrypoint: flows\parameterized_local_flow.py:etl_parent_flow
 parameter_openapi_schema:
   title: Parameters
   type: object
@@ -55,6 +42,14 @@ parameter_openapi_schema:
       - 2
       - 3
       - 4
+      - 5
+      - 6
+      - 7
+      - 8
+      - 9
+      - 10
+      - 11
+      - 12
       position: 0
       type: array
       items:
@@ -71,10 +66,13 @@ parameter_openapi_schema:
       title: colors
       default:
       - yellow
+      - green
+      - fhv
+      - fvhv
       position: 2
       type: array
       items:
         type: string
   required: null
   definitions: null
-timestamp: '2023-02-05T13:55:10.176988+00:00'
+timestamp: '2023-02-23T14:18:06.399772+00:00'

@@ -1,0 +1,78 @@
+###
+### A complete description of a Prefect Deployment for flow 'etl-local-flow'
+###
+name: etl-local-flow
+description: Parent flow to run multiple child flows
+version: 0a8677fa9fdcc00c4976bd3e185b8942
+# The work queue that will handle this deployment's runs
+work_queue_name: default
+work_pool_name: null
+tags: []
+parameters: {}
+schedule: null
+is_schedule_active: null
+infra_overrides: {}
+infrastructure:
+  type: process
+  env: {}
+  labels: {}
+  name: null
+  command: null
+  stream_output: true
+  working_dir: null
+  block_type_slug: process
+  _block_type_slug: process
+
+###
+### DO NOT EDIT BELOW THIS LINE
+###
+flow_name: etl-local-flow
+manifest_path: null
+storage: null
+path: D:\Educational Others\2023 Data Engineering Zoomcamp
+entrypoint: flows\parameterized_local_flow.py:etl_local_flow
+parameter_openapi_schema:
+  title: Parameters
+  type: object
+  properties:
+    months:
+      title: months
+      default:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+      - 9
+      - 10
+      - 11
+      - 12
+      position: 0
+      type: array
+      items:
+        type: integer
+    years:
+      title: years
+      default:
+      - 2021
+      position: 1
+      type: array
+      items:
+        type: integer
+    colors:
+      title: colors
+      default:
+      - yellow
+      - green
+      - fhv
+      - fvhv
+      position: 2
+      type: array
+      items:
+        type: string
+  required: null
+  definitions: null
+timestamp: '2023-02-23T14:19:25.163301+00:00'
